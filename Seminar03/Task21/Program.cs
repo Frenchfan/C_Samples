@@ -6,5 +6,5 @@ Console.WriteLine("Введите координаты второй точки, 
 int secondx = int.Parse(Console.ReadLine());
 Console.WriteLine("теперь - y второй точки: ");
 int secondy = int.Parse(Console.ReadLine());
-double distance = Math.Round(Math.Sqrt(Math.Pow(firstx - secondx, 2) + Math.Pow(firsty - secondy, 2)), 2);
-Console.WriteLine($"Расстояние между точками ({firstx};{firsty}) и ({secondx};{secondy}) составляет {distance}");
+double distance = Math.Sqrt(Math.Pow(firstx - secondx, 2) + Math.Pow(firsty - secondy, 2));
+Console.WriteLine($"Расстояние между точками ({firstx};{firsty}) и ({secondx};{secondy}) составляет {distance:f2}");
