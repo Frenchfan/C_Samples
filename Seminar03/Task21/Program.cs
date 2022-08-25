@@ -1,0 +1,10 @@
+﻿Console.WriteLine("Введите координаты первой точки, сначала - x: ");
+int firstx = int.Parse(Console.ReadLine());
+Console.WriteLine("теперь - y: ");
+int firsty = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите координаты второй точки, сначала - x: ");
+int secondx = int.Parse(Console.ReadLine());
+Console.WriteLine("теперь - y второй точки: ");
+int secondy = int.Parse(Console.ReadLine());
+double distance = Math.Round(Math.Sqrt(Math.Pow(firstx - secondx, 2) + Math.Pow(firsty - secondy, 2)), 2);
+Console.WriteLine($"Расстояние между точками ({firstx};{firsty}) и ({secondx};{secondy}) составляет {distance}");
