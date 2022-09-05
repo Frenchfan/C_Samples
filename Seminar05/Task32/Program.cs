@@ -4,8 +4,7 @@
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next(minValue, maxValue + 1);
-        //Console.WriteLine($"{res[i]}");
+        res[i] = new Random().Next(minValue, maxValue + 1);        
     }
     return res;
 }
@@ -22,6 +21,6 @@ int[] minusPlus(int[] array)
 int[] myArray = GetArray(4, -100, 100);
 foreach(int i in myArray) 
 {
-    Console.WriteLine(i);
+    Console.Write(i);
 }
 Console.WriteLine(String.Join(" ", minusPlus(myArray)));
