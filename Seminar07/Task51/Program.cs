@@ -3,24 +3,32 @@
 int[,] GetArray(int line, int column)
 {
     int[,] res = new int[line, column];
-    Console.WriteLine("Исходный массив: ");
     for (int i = 0; i < res.GetLength(0); i++)
     {
         for (int j = 0; j < res.GetLength(1); j++)
         {
-            res[i,j] = new Random().Next(1, 100);  
-            Console.Write($"{res[i, j]} ");          
+            res[i, j] = new Random().Next(1, 100);
+        }
+    }
+    return res;
+}
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} \t");
         }
         Console.WriteLine();
     }
-    return res;
 }
 int FindSumDiagonal(int[,] res)
 {
     int sum = 0;
     for (int i = 0; i < res.GetLength(0); i++)
     {
-        sum +=res[i, i];
+        sum += res[i, i];
     }
     return sum;
 }
@@ -29,4 +37,6 @@ int rows = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите кол-во колонок в массиве: ");
 int columns = int.Parse(Console.ReadLine());
 int[,] myArray = GetArray(rows, columns);
+Console.WriteLine("Исходный массив: ");
+PrintArray(myArray);
 Console.WriteLine($"Сумма элементов на главной диагонали: {FindSumDiagonal(myArray)}");

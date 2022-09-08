@@ -2,35 +2,45 @@
 int[,] GetArray(int line, int column)
 {
     int[,] res = new int[line, column];
-    Console.WriteLine("Исходный массив: ");
     for (int i = 0; i < res.GetLength(0); i++)
     {
         for (int j = 0; j < res.GetLength(1); j++)
         {
-            res[i,j] = new Random().Next(1, 100);  
-            Console.Write($"{res[i, j]} ");          
+            res[i, j] = new Random().Next(1, 100);
         }
-        Console.WriteLine();
     }
     return res;
 }
 int[,] FindEvenReplace(int[,] res)
 {
-    Console.WriteLine("Массив с заменами: ");
-    for (int i = 0; i < res.GetLength(0); i++)
+    for (int i = 0; i < res.GetLength(0); i += 2)
     {
-        for (int j = 0; j < res.GetLength(1); j++)
+        for (int j = 0; j < res.GetLength(1); j += 2)
         {
-            if (i % 2 == 0 && j % 2 == 0) res[i,j] *= res[i,j];  
-            Console.Write($"{res[i, j]} ");          
+            res[i, j] *= res[i, j];
+        }
+    }
+    return res;
+}
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
     }
-    return res;
 }
 Console.WriteLine("Введите кол-во строк в массиве: ");
 int rows = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите кол-во колонок в массиве: ");
 int columns = int.Parse(Console.ReadLine());
 int[,] myArray = GetArray(rows, columns);
+Console.WriteLine("Исходный массив: ");
+PrintArray(myArray);
 myArray = FindEvenReplace(myArray);
+Console.WriteLine();
+Console.WriteLine("Массив с заменами: ");
+PrintArray(myArray);
